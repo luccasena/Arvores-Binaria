@@ -1,32 +1,33 @@
 public class Arvore{
 
-    private Folha folha;
+    private Aluno aluno;
     private Arvore noDireita;
     private Arvore noEsquerda;
 
+
     public Arvore(){
         this.noDireita = null;
-        this.folha = null;
+        this.aluno = null;
         this.noEsquerda = null;
     }
 
-    public Arvore(Folha folha){
+    public Arvore(Aluno aluno){
         this.noDireita = null;
-        this.folha = folha;
+        this.aluno = aluno;
         this.noEsquerda = null;
     }
 
     public boolean verificaVazio(){
-        return this.folha == null;
+        return this.aluno == null;
     }
 
-    public void inserirFolha(Folha novoAluno){
+    public void inserirFolha(Aluno novoAluno){
         if(verificaVazio()){
-            this.folha = novoAluno;
+            this.aluno = novoAluno;
 
         }else{
             Arvore novaArvore = new Arvore(novoAluno);
-            if (novoAluno.getRgm() < folha.getRgm()) {
+            if (novoAluno.getRgm() < aluno.getRgm()) {
                 // Significa que irá ser alocado para Esquerda;
                 if (noEsquerda == null) {
                     this.noEsquerda = novaArvore;
@@ -34,7 +35,7 @@ public class Arvore{
                     this.noEsquerda.inserirFolha(novoAluno);
                 }
 
-            } else if (novoAluno.getRgm() > folha.getRgm())
+            } else if (novoAluno.getRgm() > aluno.getRgm())
                 // Significa que irá ser alocado para direita;
                 if (noDireita == null) {
                     this.noDireita = novaArvore;
