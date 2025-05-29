@@ -46,4 +46,22 @@ public class Arvore{
 
     }
 
+    public Aluno buscarPorRgm(int rgmBusca){
+        if(this.verificaVazio()){
+            return null;
+        }
+
+        if(rgmBusca == this.aluno.getRgm()){
+            return this.aluno;
+        } else if (rgmBusca < this.aluno.getRgm()) {
+            if (this.noEsquerda == null) return null;
+            return this.noEsquerda.buscarPorRgm(rgmBusca);
+        } else{
+            if(this.noDireita == null) return null;
+            return this.noDireita.buscarPorRgm(rgmBusca);
+        }
+    }
+
+
+
 }

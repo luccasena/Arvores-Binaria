@@ -55,6 +55,20 @@ public class Principal {
                             System.out.println("[3] -  Pesquisar Aluno por RGM;");
                             util.linhas();
 
+                            System.out.println("Digite o RGM do aluno: ");
+                            int rgmBusca =input.nextInt();
+
+                            Aluno resultado = arvoreAlunos.buscarPorRgm(rgmBusca);
+                            util.limpar_tela();
+
+                            if(resultado != null){
+                                System.out.println("Aluno Encontrado com sucesso!");
+                                System.out.println("Nome: " + resultado.getNomeAluno());
+                                System.out.println("RGM: " + resultado.getRgm());
+                            } else {
+                                System.out.println("Aluno com o RGM " + rgmBusca + "Não encontrado!");
+                            }
+
                             break;
                         case 4:
                             System.out.println("[4] -  Esvaziar;");
