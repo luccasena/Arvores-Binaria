@@ -58,8 +58,7 @@ public class Arvore{
         utilidades util = new utilidades();
         Scanner input = new Scanner(System.in);
 
-<<<<<<< HEAD
-        
+
         if(verificaVazio()){
         System.out.println("Não há registros de alunos!");
         } else {
@@ -93,7 +92,7 @@ public class Arvore{
         }
 
     }
-=======
+
     public Aluno buscarPorRgm(int rgmBusca){
         if(this.verificaVazio()){
             return null;
@@ -109,8 +108,4 @@ public class Arvore{
             return this.noDireita.buscarPorRgm(rgmBusca);
         }
     }
-
-
-
->>>>>>> 74cf15fd3c2a2f37b6520dc44e30caa96f063fa5
 }

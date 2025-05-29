@@ -63,7 +63,7 @@ public class Principal {
 
                             if(resultado != null){
                                 System.out.println("Aluno Encontrado com sucesso!");
-                                System.out.println("Nome: " + resultado.getNomeAluno());
+                                System.out.println("Nome: " + resultado.getNome());
                                 System.out.println("RGM: " + resultado.getRgm());
                             } else {
                                 System.out.println("Aluno com o RGM " + rgmBusca + "Não encontrado!");
