@@ -14,9 +14,10 @@ public class Aluno {
 
     public int getRgm(){
         return RGM;
+        
     }
 
-    public String getNomeAluno(){
+    public String getNome(){
         return nomeAluno;
     }
 

@@ -1,10 +1,19 @@
+import java.util.Scanner;
 public class Arvore{
 
     private Aluno aluno;
     private Arvore noDireita;
     private Arvore noEsquerda;
 
-
+    public Aluno getAluno() {
+        return aluno;
+    }
+    public Arvore getDireita(){
+        return noDireita;
+    }
+    public Arvore getEsquerda(){
+        return noEsquerda;
+    }
     public Arvore(){
         this.noDireita = null;
         this.aluno = null;
@@ -45,5 +54,42 @@ public class Arvore{
         }
 
     }
+    public void exibirArvore(){
+        utilidades util = new utilidades();
+        Scanner input = new Scanner(System.in);
 
+        
+        if(verificaVazio()){
+        System.out.println("Não há registros de alunos!");
+        } else {
+        System.out.println("Digite a ordem que deseja utilizar: ");
+        util.menu_exibir();
+        int opcao = input.nextInt();
+            switch (opcao) {
+                case 1:
+                    System.out.println("Exibindo em Pré Ordem: ");
+                    util.linhas();
+                    util.preOrdem(this); // this representa o objeto da árvore onde o método foi chamado, garantindo que a travessia (e impressão) será feita a partir da raiz da árvore
+                    break;
+                case 2:
+                    System.out.println("Exibindo em In Ordem: ");
+                    util.linhas();
+                    util.inOrdem(this);
+                    break;
+                case 3:
+                    System.out.println("Exibindo em Pós Ordem: ");
+                    util.linhas();
+                    util.posOrdem(this);
+                    break;
+                case 4:
+                    
+                default:
+                    System.out.println("Opção inválida! Tente novamente.");
+                    
+                    break;
+            }
+
+        }
+
+    }
 }

@@ -64,6 +64,7 @@ public class Principal {
                         case 5:
                             System.out.println("[5] -  Exibir Árvore;");
                             util.linhas();
+                            arvoreAlunos.exibirArvore();
 
                             break;
                         default:
