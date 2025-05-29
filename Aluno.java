@@ -1,12 +1,12 @@
 // Configurando a estrutura do nó:
 
-public class Folha {
+public class Aluno {
 
     // Valores dentro do nó
     private int RGM;
     private String nomeAluno;
 
-    public Folha(int RGM, String nomeAluno){
+    public Aluno(int RGM, String nomeAluno){
         this.RGM = RGM;
         this.nomeAluno = nomeAluno;
 
@@ -15,5 +15,10 @@ public class Folha {
     public int getRgm(){
         return RGM;
     }
+
+    public String getNomeAluno(){
+        return nomeAluno;
+    }
+
 
 }

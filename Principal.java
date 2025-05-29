@@ -9,7 +9,6 @@ public class Principal {
         int escolha;
         Arvore arvoreAlunos = new Arvore();
 
-
         while(true){
             try {
                 util.menu_principal();
@@ -27,10 +26,29 @@ public class Principal {
                             System.out.println("[1] -  Inserir Aluno;");
                             util.linhas();
 
+                            System.out.println("Digite o nome completo do usuário: ");
+                            String nome = input.next();
+
+                            input.nextLine(); // Limpando o Buffer do teclado
+
+                            System.out.println("Digite o RGM do aluno:  ");
+                            int rgm = input.nextInt();
+
+                            Aluno aluno = new Aluno(rgm, nome);
+
+                            arvoreAlunos.inserirFolha(aluno);
+
+                            util.limpar_tela();
+                            System.out.println("Aluno "+nome+" adicionado com sucesso!");
+
+
                             break;
                         case 2:
                             System.out.println("[2] -  Remover Aluno;");
                             util.linhas();
+
+
+
 
                             break;
                         case 3:
@@ -57,6 +75,7 @@ public class Principal {
                 if(escolha == 0){
                     break;
                 }
+
             }catch (Exception e){
                 util.limpar_tela();
                 input.nextLine();
