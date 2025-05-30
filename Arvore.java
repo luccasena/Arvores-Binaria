@@ -46,4 +46,48 @@ public class Arvore{
 
     }
 
+    public void removerFolha(int rgm, Arvore arvore){
+
+        if(rgm == aluno.getRgm()){
+
+        }else{
+
+            if (rgm < aluno.getRgm()) {
+                
+                // Significa que irá ser alocado para Esquerda;
+                if (noEsquerda == null) {
+                    this.noEsquerda = null;
+                } else {
+                    this.noEsquerda.removerFolha(rgm, arvore);
+                }
+
+            } else if (rgm > aluno.getRgm())
+                // Significa que irá ser alocado para Direita;
+                if (noDireita == null) {
+                    this.noDireita = null;
+                } else {
+                    this.noDireita.removerFolha(rgm, arvore);
+                }
+        }
+
+    }
+
+    public Aluno buscarPorRgm(int rgmBusca){
+        if(this.verificaVazio()){
+            return null;
+        }
+
+        if(rgmBusca == this.aluno.getRgm()){
+            return this.aluno;
+        } else if (rgmBusca < this.aluno.getRgm()) {
+            if (this.noEsquerda == null) return null;
+            return this.noEsquerda.buscarPorRgm(rgmBusca);
+        } else{
+            if(this.noDireita == null) return null;
+            return this.noDireita.buscarPorRgm(rgmBusca);
+        }
+    }
+
+
+
 }

@@ -1,3 +1,6 @@
+import java.io.BufferedReader;
+import java.io.FileReader; //biblioteca para ler arquivo
+
 public class utilidades {
 
     public void limpar_tela(){
@@ -33,4 +36,33 @@ public class utilidades {
         linhas();
     }
 
+    public void adicionar_alunos_via_doc_txt(Arvore arvore){
+
+        String caminhoarquivo = "rgms.txt";
+        BufferedReader leitor = null; //aceita qualquer tipo de ENTRADA de dado  
+
+        try{    
+            FileReader leitorarquivo = new FileReader(caminhoarquivo);
+            leitor = new BufferedReader(leitorarquivo); 
+            // read-line le uma linha do arquivo e pula para a proxima linha
+
+            String nome_aluno; //ler a primeira linha (espera que seja o nome)
+            String rgm_aluno_string; //ler a segunda linha (espera que seja o rgm)
+         
+
+            while((nome_aluno = leitor.readLine()) != null &&
+                  (rgm_aluno_string = leitor.readLine()) != null){
+
+                    int rgm_aluno = Integer.parseInt(rgm_aluno_string);
+                    Aluno aluno = new Aluno(rgm_aluno, nome_aluno);
+                    arvore.inserirFolha(aluno);
+
+            }
+            System.out.println("Arquivo txt lido e Alunos criados!");
+            leitor.close();
+        }catch(Exception erro){
+            System.out.println("Algo deu errado!");
+            System.out.println(erro.getMessage());
+        }
+    }
 }
