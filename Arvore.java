@@ -1,4 +1,5 @@
 import java.util.Scanner;
+
 public class Arvore{
 
     private Aluno aluno;
@@ -118,12 +119,15 @@ public class Arvore{
         System.out.println("Não há registros de alunos!");
         } else {
             while(true){
-                System.out.println("Digite a ordem que deseja utilizar: ");
                 util.menu_exibir();
                 int opcao = input.nextInt();
                 util.limpar_tela();
 
                 switch (opcao) {
+                    case 0:
+                        System.out.println("Saindo do menu de exibição...");
+
+                        break;
                     case 1:
                         System.out.println("Exibindo em Pré Ordem: ");
                         util.linhas();
@@ -150,7 +154,7 @@ public class Arvore{
                         break;
                 }
                 if(opcao == 0){
-                    input.close();
+                    input.nextLine();
                     break;
                 }   
             }
@@ -172,4 +176,5 @@ public class Arvore{
             return this.noDireita.buscarPorRgm(rgmBusca);
         }
     }
+
 }

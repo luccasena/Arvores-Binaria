@@ -54,9 +54,14 @@ public class Principal {
                             System.out.println("Digite o RGM do aluno:  ");
                             rgm = input.nextInt();
 
-                            arvoreAlunos = arvoreAlunos.removerAluno(rgm);
                             util.limpar_tela();
-                            System.out.println("Aluno com RGM: "+rgm+" removido com sucesso!");
+                            if(arvoreAlunos.buscarPorRgm(rgm) == null){
+                                System.out.println("Aluno com o RGM: "+rgm+" não encontrado!");
+                                break;
+                            }else{
+                                arvoreAlunos = arvoreAlunos.removerAluno(rgm);
+                                util.limpar_tela();
+                                System.out.println("Aluno com RGM: "+rgm+" removido com sucesso!");}
 
                             break;
                         case 3:
@@ -85,9 +90,8 @@ public class Principal {
                             break;
                         case 5:
                             System.out.println("[5] -  Exibir Árvore;");
-                            util.linhas();
                             arvoreAlunos.exibirArvore();
-                            input.nextLine();
+
 
 
                             break;

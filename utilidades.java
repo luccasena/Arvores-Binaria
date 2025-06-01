@@ -22,17 +22,21 @@ public class utilidades {
         System.out.println("[5] -  Exibir Árvore;");
         System.out.println("[0] -  Sair;");
         linhas();
+        System.out.println("Utilize os índices [x] para poder acessar as funcionalidade!");
+        linhas();
     }
-
+    
     public void menu_exibir(){
         linhas();
-        System.out.println("            Exibir Árvore Binária             ");
+        System.out.println("                   Exibir Árvore Binária                     ");
         linhas();
         System.out.println("[1] -  Pré-Ordem;");
         System.out.println("[2] -  In-Ordem;");
         System.out.println("[3] -  Pós-Ordem;");
         System.out.println("[4] -  Graficamente;");
         System.out.println("[0] -  Sair;");
+        linhas();
+        System.out.println("Utilize os índices [x] para poder acessar as funcionalidade!");
         linhas();
     }
     
