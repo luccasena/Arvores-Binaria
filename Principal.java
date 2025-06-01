@@ -30,20 +30,27 @@ public class Principal {
                             System.out.println("[1] -  Inserir Aluno;");
                             util.linhas();
 
-                            System.out.println("Digite o nome completo do usuário: ");
-                            String nome = input.next();
-
-                            input.nextLine(); // Limpando o Buffer do teclado
-
                             System.out.println("Digite o RGM do aluno:  ");
                             rgm = input.nextInt();
 
-                            Aluno aluno = new Aluno(rgm, nome);
+                            input.nextLine();
+                        
+                            if(arvoreAlunos.buscarPorRgm(rgm) != null){
+                                System.out.println("RGM já cadastrado! Tente novamente...");
+     
+                            }else{
 
-                            arvoreAlunos.inserirAluno(aluno);
+                                System.out.println("Digite o nome completo do usuário: ");
+                                String nome = input.nextLine();
 
-                            util.limpar_tela();
-                            System.out.println("Aluno "+nome+" adicionado com sucesso!");
+                                Aluno aluno = new Aluno(rgm, nome);
+                                arvoreAlunos.inserirAluno(aluno);
+
+                                util.limpar_tela();
+                                System.out.println("Aluno "+nome+" adicionado com sucesso!");
+                                
+
+                        }
 
 
                             break;
