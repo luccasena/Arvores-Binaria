@@ -6,8 +6,12 @@ public class Principal {
 
         Scanner input = new Scanner(System.in);
         utilidades util = new utilidades();
-        int escolha;
         Arvore arvoreAlunos = new Arvore();
+
+        util.adicionar_alunos_via_doc_txt(arvoreAlunos);
+
+        int escolha;
+        int rgm;
 
         while(true){
             try {
@@ -32,11 +36,11 @@ public class Principal {
                             input.nextLine(); // Limpando o Buffer do teclado
 
                             System.out.println("Digite o RGM do aluno:  ");
-                            int rgm = input.nextInt();
+                            rgm = input.nextInt();
 
                             Aluno aluno = new Aluno(rgm, nome);
 
-                            arvoreAlunos.inserirFolha(aluno);
+                            arvoreAlunos.inserirAluno(aluno);
 
                             util.limpar_tela();
                             System.out.println("Aluno "+nome+" adicionado com sucesso!");
@@ -47,8 +51,12 @@ public class Principal {
                             System.out.println("[2] -  Remover Aluno;");
                             util.linhas();
 
+                            System.out.println("Digite o RGM do aluno:  ");
+                            rgm = input.nextInt();
 
-
+                            arvoreAlunos = arvoreAlunos.removerAluno(rgm);
+                            util.limpar_tela();
+                            System.out.println("Aluno com RGM: "+rgm+" removido com sucesso!");
 
                             break;
                         case 3:
@@ -79,6 +87,8 @@ public class Principal {
                             System.out.println("[5] -  Exibir Árvore;");
                             util.linhas();
                             arvoreAlunos.exibirArvore();
+                            input.nextLine();
+
 
                             break;
                         default:
@@ -88,6 +98,7 @@ public class Principal {
                     }
                 }
                 if(escolha == 0){
+                    input.close();
                     break;
                 }
 
