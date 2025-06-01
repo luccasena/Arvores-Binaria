@@ -30,20 +30,27 @@ public class Principal {
                             System.out.println("[1] -  Inserir Aluno;");
                             util.linhas();
 
-                            System.out.println("Digite o nome completo do usuário: ");
-                            String nome = input.next();
-
-                            input.nextLine(); // Limpando o Buffer do teclado
-
                             System.out.println("Digite o RGM do aluno:  ");
                             rgm = input.nextInt();
 
-                            Aluno aluno = new Aluno(rgm, nome);
+                            input.nextLine();
+                        
+                            if(arvoreAlunos.buscarPorRgm(rgm) != null){
+                                System.out.println("RGM já cadastrado! Tente novamente...");
+     
+                            }else{
 
-                            arvoreAlunos.inserirAluno(aluno);
+                                System.out.println("Digite o nome completo do usuário: ");
+                                String nome = input.nextLine();
 
-                            util.limpar_tela();
-                            System.out.println("Aluno "+nome+" adicionado com sucesso!");
+                                Aluno aluno = new Aluno(rgm, nome);
+                                arvoreAlunos.inserirAluno(aluno);
+
+                                util.limpar_tela();
+                                System.out.println("Aluno "+nome+" adicionado com sucesso!");
+                                
+
+                        }
 
 
                             break;
@@ -51,35 +58,46 @@ public class Principal {
                             System.out.println("[2] -  Remover Aluno;");
                             util.linhas();
 
-                            System.out.println("Digite o RGM do aluno:  ");
-                            rgm = input.nextInt();
-
-                            util.limpar_tela();
-                            if(arvoreAlunos.buscarPorRgm(rgm) == null){
-                                System.out.println("Aluno com o RGM: "+rgm+" não encontrado!");
+                            if(arvoreAlunos.verificaVazio()){
+                                System.out.println("Não há alunos cadastrados para remover!");
                                 break;
                             }else{
-                                arvoreAlunos = arvoreAlunos.removerAluno(rgm);
+
+                                System.out.println("Digite o RGM do aluno:  ");
+                                rgm = input.nextInt();
+
                                 util.limpar_tela();
-                                System.out.println("Aluno com RGM: "+rgm+" removido com sucesso!");}
+                                if(arvoreAlunos.buscarPorRgm(rgm) == null){
+                                    System.out.println("Aluno com o RGM: "+rgm+" não encontrado!");
+                                    break;
+                                }else{
+                                    arvoreAlunos = arvoreAlunos.removerAluno(rgm);
+                                    util.limpar_tela();
+                                    System.out.println("Aluno com RGM: "+rgm+" removido com sucesso!");}
+                            }
 
                             break;
                         case 3:
                             System.out.println("[3] -  Pesquisar Aluno por RGM;");
                             util.linhas();
+                            
+                            if(arvoreAlunos.verificaVazio()){
+                                System.out.println("Não há alunos cadastrados para pesquisar!");
+                                break;
+                            }else{
+                                System.out.println("Digite o RGM do aluno: ");
+                                int rgmBusca =input.nextInt();
 
-                            System.out.println("Digite o RGM do aluno: ");
-                            int rgmBusca =input.nextInt();
+                                Aluno resultado = arvoreAlunos.buscarPorRgm(rgmBusca);
+                                util.limpar_tela();
 
-                            Aluno resultado = arvoreAlunos.buscarPorRgm(rgmBusca);
-                            util.limpar_tela();
-
-                            if(resultado != null){
-                                System.out.println("Aluno Encontrado com sucesso!");
-                                System.out.println("Nome: " + resultado.getNome());
-                                System.out.println("RGM: " + resultado.getRgm());
-                            } else {
-                                System.out.println("Aluno com o RGM " + rgmBusca + "Não encontrado!");
+                                if(resultado != null){
+                                    System.out.println("Aluno Encontrado com sucesso!");
+                                    System.out.println("Nome: " + resultado.getNome());
+                                    System.out.println("RGM: " + resultado.getRgm());
+                                } else {
+                                    System.out.println("Aluno com o RGM " + rgmBusca + "Não encontrado!");
+                                }
                             }
 
                             break;
@@ -87,17 +105,25 @@ public class Principal {
                             System.out.println("[4] -  Esvaziar;");
                             util.linhas();
 
+
+
                             break;
                         case 5:
                             System.out.println("[5] -  Exibir Árvore;");
-                            arvoreAlunos.exibirArvore();
+                            if ((arvoreAlunos.verificaVazio())) {
+                                System.out.println("Não há alunos cadastrados para exibir!");
+ 
+                                
+                            }else{
+                                arvoreAlunos.exibirArvore();
 
+                            }
 
 
                             break;
                         default:
                             System.out.println("Limite de índices excedido! Tente novamente...");
-                            util.linhas();
+
 
                     }
                 }
