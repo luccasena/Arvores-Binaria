@@ -1,7 +1,9 @@
 import java.io.BufferedReader;
 import java.io.FileReader; //biblioteca para ler arquivo
 
-public class utilidades {
+import javax.swing.*;
+
+public class utilidades extends JFrame{
 
     public void limpar_tela(){
         System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
@@ -57,8 +59,9 @@ public class utilidades {
         posOrdem(arvore.getEsquerda());
         posOrdem(arvore.getDireita());
         System.out.println("RGM: " + arvore.getAluno().getRgm() + " | Nome: " + arvore.getAluno().getNome());
+        
     }
-
+    
      public void adicionar_alunos_via_doc_txt(Arvore arvore){
 
         String caminhoarquivo = "rgms.txt";

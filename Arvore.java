@@ -110,56 +110,89 @@ public class Arvore{
         }
     }
 
-    public void exibirArvore(){
-        utilidades util = new utilidades();
-        Scanner input = new Scanner(System.in);
+    // Na classe Arvore.java
+// ... (método getTreeHeight e calculateHeightRecursive como definidos anteriormente) ...
 
+public void exibirArvore() {
+    utilidades util = new utilidades();
+    Scanner input = new Scanner(System.in);
 
-        if(verificaVazio()){
-        System.out.println("Não há registros de alunos!");
+    if (verificaVazio()) {
+        System.out.println("Não há registros de alunos para exibir!");
+        return;
+    }
+
+    while (true) {
+        util.menu_exibir();
+        int opcao = -1;
+
+        if (input.hasNextInt()) {
+            opcao = input.nextInt();
         } else {
-            while(true){
-                util.menu_exibir();
-                int opcao = input.nextInt();
-                util.limpar_tela();
+            System.out.println("Entrada inválida. Por favor, insira um número.");
+            input.next(); 
+            input.nextLine(); 
+            continue;
+        }
+        input.nextLine(); 
+        util.limpar_tela();
 
-                switch (opcao) {
-                    case 0:
-                        System.out.println("Saindo do menu de exibição...");
-
-                        break;
-                    case 1:
-                        System.out.println("Exibindo em Pré Ordem: ");
-                        util.linhas();
-                        util.preOrdem(this); // this representa o objeto da árvore onde o método foi chamado, garantindo que a travessia (e impressão) será feita a partir da raiz da árvore
-                        break;
-                    case 2:
-                        System.out.println("Exibindo em In Ordem: ");
-                        util.linhas();
-                        util.inOrdem(this);
-                        break;
-                    case 3:
-                        System.out.println("Exibindo em Pós Ordem: ");
-                        util.linhas();
-                        util.posOrdem(this);
-                        break;
-                    case 4:
-                        System.out.println("Exibindo em Graficamente: ");
-
-                        break;
-                        
-                    default:
-                        System.out.println("Opção inválida! Tente novamente.");
-                        
-                        break;
+        switch (opcao) {
+            // ... (casos 0, 1, 2, 3 permanecem os mesmos) ...
+            case 0:
+                System.out.println("Saindo do menu de exibição...");
+                return;
+            case 1:
+                System.out.println("Exibindo em Pré Ordem: ");
+                util.linhas();
+                util.preOrdem(this);
+                util.linhas();
+                break;
+            case 2:
+                System.out.println("Exibindo em In Ordem: ");
+                util.linhas();
+                util.inOrdem(this);
+                util.linhas();
+                break;
+            case 3:
+                System.out.println("Exibindo em Pós Ordem: ");
+                util.linhas();
+                util.posOrdem(this);
+                util.linhas();
+                break;
+            case 4:
+                System.out.println("Exibindo Graficamente em Janela:");
+                util.linhas();
+                if (this.verificaVazio()) { 
+                    System.out.println("A árvore está vazia. Não é possível exibir graficamente.");
+                } else {
+                    final Arvore arvoreParaExibirGUI = this; 
+                    javax.swing.SwingUtilities.invokeLater(new Runnable() {
+                        public void run() {
+                            // Chama a nova GUIAvoreSimples
+                            new GUIAvore(arvoreParaExibirGUI); 
+                        }
+                    });
+                    System.out.println("Janela gráfica da árvore foi solicitada...");
                 }
-                if(opcao == 0){
-                    input.nextLine();
-                    break;
-                }   
-            }
+                break; 
+            default:
+                System.out.println("Opção inválida! Tente novamente.");
+                util.linhas();
+                break;
+        }
+
+        if (opcao != 0 && opcao != 4) { 
+            System.out.println("\nPressione Enter para voltar ao menu de exibição...");
+            input.nextLine(); 
+        } else if (opcao == 4) {
+             System.out.println("A janela gráfica opera independentemente. Pressione Enter para continuar no terminal...");
+             input.nextLine();
         }
     }
+}
+
+// ... (resto da sua classe Arvore.java)
 
     public Aluno buscarPorRgm(int rgmBusca){
         if(this.verificaVazio()){
