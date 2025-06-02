@@ -46,13 +46,10 @@ public class Principal {
                                 Aluno aluno = new Aluno(rgm, nome);
                                 arvoreAlunos.inserirAluno(aluno);
 
-                                util.limpar_tela();
-                                System.out.println("Aluno "+nome+" adicionado com sucesso!");
-                                
-
-                        }
-
-
+                            util.limpar_tela();
+                            System.out.println("Aluno "+nome+" adicionado com sucesso!");
+                            String string_rgm = Integer.toString(rgm);
+                            util.escrever_arquivo_txt(nome, string_rgm,"rgmscriados.txt");
                             break;
                         case 2:
                             System.out.println("[2] -  Remover Aluno;");
@@ -66,16 +63,19 @@ public class Principal {
                                 System.out.println("Digite o RGM do aluno:  ");
                                 rgm = input.nextInt();
 
+                            util.limpar_tela();
+                            Aluno aluno_busca = arvoreAlunos.buscarPorRgm(rgm);
+                            if(aluno_busca == null){
+                                System.out.println("Aluno com o RGM: "+rgm+" não encontrado!");
+                                break;
+                            }else{
+                                String nome_aluno = aluno_busca.getNome();
+                                arvoreAlunos = arvoreAlunos.removerAluno(rgm);
                                 util.limpar_tela();
-                                if(arvoreAlunos.buscarPorRgm(rgm) == null){
-                                    System.out.println("Aluno com o RGM: "+rgm+" não encontrado!");
-                                    break;
-                                }else{
-                                    arvoreAlunos = arvoreAlunos.removerAluno(rgm);
-                                    util.limpar_tela();
-                                    System.out.println("Aluno com RGM: "+rgm+" removido com sucesso!");}
+                                System.out.println("Aluno com RGM: "+rgm+" removido com sucesso!");
+                                util.escrever_arquivo_txt(nome_aluno,Integer.toString(rgm),"rgmsremovidos.txt");
                             }
-
+                               
                             break;
                         case 3:
                             System.out.println("[3] -  Pesquisar Aluno por RGM;");
@@ -129,6 +129,8 @@ public class Principal {
                 }
                 if(escolha == 0){
                     input.close();
+                    util.limpar_arquivo_txt("rgmscriados.txt");
+                    util.limpar_arquivo_txt("rgmsremovidos.txt");
                     break;
                 }
 
