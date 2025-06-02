@@ -82,7 +82,7 @@ public class Principal {
                                     util.escrever_arquivo_txt(nome_aluno,Integer.toString(rgm),"rgmsremovidos.txt");
                                 }
                             }
-
+                               
                             break;
                         case 3:
                             System.out.println("[3] -  Pesquisar Aluno por RGM;");
