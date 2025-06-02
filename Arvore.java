@@ -140,7 +140,7 @@ public class Arvore{
             switch (opcao) {
                 case 0:
                     System.out.println("Saindo do menu de exibição...");
-                    input.close();
+                  
 
                     return;
                 case 1:
@@ -207,6 +207,23 @@ public class Arvore{
             return this.noDireita.buscarPorRgm(rgmBusca);
         }
     }
+    // Esvaziar a arvore
+   public void esvaziar() {
+    // Primeiro esvazia o nó esquerda (se existir)
+    if (this.noEsquerda != null) {
+        this.noEsquerda.esvaziar();
+        this.noEsquerda = null;
+    }
 
-    
+    // Depois esvazia o nó direita (se existir)
+    if (this.noDireita != null) {
+        this.noDireita.esvaziar();
+        this.noDireita = null;
+    }
+
+    // Por fim, esvazia o nó atual
+    this.aluno = null;
+}
+
+
 }

@@ -108,13 +108,13 @@ public class Principal {
                             }
 
                             break;
-                        case 4:
-                            System.out.println("[4] -  Esvaziar;");
-                            util.linhas();
+                       case 4: // esvaziar árvore
+                             arvoreAlunos.esvaziar();  // Chama o método que apaga a árvore
+                            System.out.println("Árvore esvaziada com sucesso!");
+                             break;
 
 
-
-                            break;
+                            
                         case 5:
                             System.out.println("[5] -  Exibir Árvore;");
                             if ((arvoreAlunos.verificaVazio())) {
