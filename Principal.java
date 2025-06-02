@@ -101,10 +101,10 @@ public class Principal {
                             }
 
                             break;
-                        case 4:
-                            System.out.println("[4] -  Esvaziar;");
-                            util.linhas();
-
+                       case 4: // esvaziar árvore
+                             arvore.esvaziar();  // Chama o método que apaga a árvore
+                            System.out.println("Árvore esvaziada com sucesso!");
+                             break;
 
 
                             break;
