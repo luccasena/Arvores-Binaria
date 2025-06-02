@@ -84,32 +84,11 @@ public class utilidades extends JFrame{
                     arvore.inserirAluno(aluno);
 
             }
-            System.out.println("Arquivo txt lido e Alunos criados!");
+            // System.out.println("Arquivo txt lido e Alunos criados!");
             leitor.close();
         }catch(Exception erro){
             System.out.println("Algo deu errado!");
             System.out.println(erro.getMessage());
-        }
-    }
-    public void escrever_arquivo_txt(String nome_aluno,String rgm_aluno,String arquivo){
-        String caminho_arquivo = arquivo;
-        boolean subscrever = false;
-        try(BufferedWriter escritor = new BufferedWriter(new FileWriter(caminho_arquivo,!subscrever))){ // Criando "conexao" com o arquivo para poder manipular-lo
-            escritor.write("\n"+nome_aluno+"\n"+rgm_aluno);
-            System.out.println("Dados escritos com sucesso!");
-            escritor.close();
-        }catch(Exception erro){
-            System.out.println("Ops, algo deu errado!");
-        }
-    }
-    public void limpar_arquivo_txt(String arquivo){
-        String caminho_arquivo = arquivo;
-        boolean subscrever = false;
-        try(BufferedWriter escritor = new BufferedWriter(new FileWriter(caminho_arquivo,subscrever))){ // Criando "conexao" com o arquivo para poder manipular-lo
-            escritor.write("");
-            escritor.close();
-        }catch(Exception erro){
-            System.out.println("Ops, algo deu errado!");
         }
     }
 
@@ -118,10 +97,10 @@ public class utilidades extends JFrame{
         boolean subscrever = false;
         try(BufferedWriter escritor = new BufferedWriter(new FileWriter(caminho_arquivo,!subscrever))){ // Criando "conexao" com o arquivo para poder manipular-lo
             escritor.write("\n"+nome_aluno+"\n"+rgm_aluno);
-            System.out.println("Dados escritos com sucesso!");
+           //  System.out.println("Dados escritos com sucesso!");
             escritor.close();
         }catch(Exception erro){
-            System.out.println("Ops, algo deu errado!");
+            // System.out.println("Ops, algo deu errado!");
         }
     }
     public void limpar_arquivo_txt(String arquivo){

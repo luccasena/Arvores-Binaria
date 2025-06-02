@@ -103,7 +103,7 @@ public class Principal {
                                     System.out.println("Nome: " + resultado.getNome());
                                     System.out.println("RGM: " + resultado.getRgm());
                                 } else {
-                                    System.out.println("Aluno com o RGM " + rgmBusca + "Não encontrado!");
+                                    System.out.println("Aluno com o RGM: " + rgmBusca + " Não encontrado!");
                                 }
                             }
 
