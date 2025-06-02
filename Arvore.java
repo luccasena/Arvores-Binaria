@@ -2,9 +2,13 @@ import java.util.Scanner;
 
 public class Arvore{
 
+    // Atributos
+
     private Aluno aluno;
     private Arvore noDireita;
     private Arvore noEsquerda;
+    
+    // Métodos
 
     public Aluno getAluno() {
         return aluno;
@@ -79,9 +83,8 @@ public class Arvore{
                 noEsquerda = noEsquerda.removerAluno(rgm);
 
             // Percorre à direita
-            } else if (rgm > aluno.getRgm()) {
-                if (noDireita != null)
-                    noDireita = noDireita.removerAluno(rgm);
+            } else if (rgm > aluno.getRgm() && noDireita != null) {
+                noDireita = noDireita.removerAluno(rgm);
 
             // Encontrou o nó a ser removido
             } else {
@@ -110,10 +113,7 @@ public class Arvore{
         }
     }
 
-    // Na classe Arvore.java
-// ... (método getTreeHeight e calculateHeightRecursive como definidos anteriormente) ...
-
-public void exibirArvore() {
+    public void exibirArvore() {
     utilidades util = new utilidades();
     Scanner input = new Scanner(System.in);
 
@@ -192,9 +192,8 @@ public void exibirArvore() {
     }
 }
 
-// ... (resto da sua classe Arvore.java)
-
     public Aluno buscarPorRgm(int rgmBusca){
+
         if(this.verificaVazio()){
             return null;
         }
@@ -210,4 +209,5 @@ public void exibirArvore() {
         }
     }
 
+    
 }

@@ -10,8 +10,8 @@ import java.awt.geom.Ellipse2D;
 public class PainelDesenhoArvore extends JPanel {
 
     private Arvore noRaizDaArvore;
-    private static final int RAIO_NO = 20; 
-    private static final int ESPACO_VERTICAL_ENTRE_NIVEIS = 60;
+    private static final int RAIO_NO = 30; 
+    private static final int ESPACO_VERTICAL_ENTRE_NIVEIS = 100;
 
     public PainelDesenhoArvore(Arvore noRaiz) {
         this.noRaizDaArvore = noRaiz;
