@@ -1,6 +1,7 @@
 import java.io.BufferedReader;
 import java.io.FileReader; //biblioteca para ler arquivo
-
+import java.io.BufferedWriter; 
+import java.io.FileWriter; //biblioteca escrever em arquivo
 import javax.swing.*;
 
 public class utilidades extends JFrame{
@@ -43,19 +44,19 @@ public class utilidades extends JFrame{
     }
     
     public void preOrdem(Arvore arvore){
-    if (arvore == null || arvore.verificaVazio()) return;
+    if (arvore == null) return;
         System.out.println("RGM: " + arvore.getAluno().getRgm() + " | Nome: " + arvore.getAluno().getNome());
         preOrdem(arvore.getEsquerda());
         preOrdem(arvore.getDireita());
     }
     public void inOrdem(Arvore arvore){
-    if (arvore == null || arvore.verificaVazio()) return;
+    if (arvore == null) return;
         inOrdem(arvore.getEsquerda());
         System.out.println("RGM: " + arvore.getAluno().getRgm() + " | Nome: " + arvore.getAluno().getNome());
         inOrdem(arvore.getDireita());
     }
     public void posOrdem(Arvore arvore){
-    if (arvore == null || arvore.verificaVazio()) return;
+    if (arvore == null) return;
         posOrdem(arvore.getEsquerda());
         posOrdem(arvore.getDireita());
         System.out.println("RGM: " + arvore.getAluno().getRgm() + " | Nome: " + arvore.getAluno().getNome());
@@ -89,6 +90,28 @@ public class utilidades extends JFrame{
         }catch(Exception erro){
             System.out.println("Algo deu errado!");
             System.out.println(erro.getMessage());
+        }
+    }
+
+    public void escrever_arquivo_txt(String nome_aluno,String rgm_aluno,String arquivo){
+        String caminho_arquivo = arquivo;
+        boolean subscrever = false;
+        try(BufferedWriter escritor = new BufferedWriter(new FileWriter(caminho_arquivo,!subscrever))){ // Criando "conexao" com o arquivo para poder manipular-lo
+            escritor.write("\n"+nome_aluno+"\n"+rgm_aluno);
+            System.out.println("Dados escritos com sucesso!");
+            escritor.close();
+        }catch(Exception erro){
+            System.out.println("Ops, algo deu errado!");
+        }
+    }
+    public void limpar_arquivo_txt(String arquivo){
+        String caminho_arquivo = arquivo;
+        boolean subscrever = false;
+        try(BufferedWriter escritor = new BufferedWriter(new FileWriter(caminho_arquivo,subscrever))){ // Criando "conexao" com o arquivo para poder manipular-lo
+            escritor.write("");
+            escritor.close();
+        }catch(Exception erro){
+            System.out.println("Ops, algo deu errado!");
         }
     }
 
