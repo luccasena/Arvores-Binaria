@@ -1,13 +1,13 @@
 import javax.swing.JFrame;
-import javax.swing.JScrollPane; // Adicionado para permitir rolagem se a árvore for grande
+import javax.swing.JScrollPane;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 
-public class GUIAvore extends JFrame {
+public class GUIArvore extends JFrame {
 
     private PainelDesenhoArvore painelDesenho;
 
-    public GUIAvore(Arvore noRaiz) {
+    public GUIArvore(Arvore noRaiz) {
         setTitle("Visualizador de Árvore Binária (Simples)");   
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         
@@ -23,7 +23,7 @@ public class GUIAvore extends JFrame {
         
         setSize(new Dimension(800, 600));
         setMinimumSize(new Dimension(400,300));
-        setLocationRelativeTo(null); // Centraliza na tela
+        setLocationRelativeTo(null);
         setVisible(true);
     }
 }

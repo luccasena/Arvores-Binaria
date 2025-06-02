@@ -138,7 +138,6 @@ public class Arvore{
             util.limpar_tela();
 
             switch (opcao) {
-                // ... (casos 0, 1, 2, 3 permanecem os mesmos) ...
                 case 0:
                     System.out.println("Saindo do menu de exibição...");
                     input.close();
@@ -165,23 +164,19 @@ public class Arvore{
                 case 4:
                     System.out.println("Exibindo Graficamente em Janela:");
                     util.linhas();
-                    if (this.verificaVazio()) { 
-                        System.out.println("A árvore está vazia. Não é possível exibir graficamente.");
-                    } else {
-                        final Arvore arvoreParaExibirGUI = this; 
+                        final Arvore arvore = this; 
                         javax.swing.SwingUtilities.invokeLater(new Runnable() {
                             public void run() {
-                                // Chama a nova GUIAvoreSimples
-                                new GUIAvore(arvoreParaExibirGUI); 
+                                new GUIArvore(arvore); 
                             }
                         });
                         System.out.println("Janela gráfica da árvore foi solicitada...");
-                    }
                     break; 
                 default:
                     System.out.println("Opção inválida! Tente novamente.");
                     util.linhas();
                     break;
+        
         }
 
         if (opcao != 0 && opcao != 4) { 
