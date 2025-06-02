@@ -140,7 +140,7 @@ public class Arvore{
             switch (opcao) {
                 case 0:
                     System.out.println("Saindo do menu de exibição...");
-                    input.close();
+                  
 
                     return;
                 case 1:
