@@ -207,8 +207,8 @@ public class Arvore{
             return this.noDireita.buscarPorRgm(rgmBusca);
         }
     }
-    // Esvaziar a arvore
-   public void esvaziar() {
+
+    public void esvaziar() {
     // Primeiro esvazia o nó esquerda (se existir)
     if (this.noEsquerda != null) {
         this.noEsquerda.esvaziar();

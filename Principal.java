@@ -52,9 +52,7 @@ public class Principal {
                                 String string_rgm = Integer.toString(rgm);
                                 util.escrever_arquivo_txt(nome, string_rgm,"rgmscriados.txt");
                                 
-
-                        }
-
+                            }
 
                             break;
                         case 2:
@@ -108,19 +106,25 @@ public class Principal {
                             }
 
                             break;
-                       case 4: // esvaziar árvore
-                             arvoreAlunos.esvaziar();  // Chama o método que apaga a árvore
-                            System.out.println("Árvore esvaziada com sucesso!");
-                             break;
+                       case 4: 
+                            System.out.println("[4] -  Esvaziar;");
+                            util.linhas();
+                            if(arvoreAlunos.verificaVazio()){
+                                System.out.println("Não há alunos cadastrados para pesquisar!");
+                                
+                            }else{
+                                arvoreAlunos.esvaziar();  
+                                System.out.println("Árvore esvaziada com sucesso!");
+                        
+                            }
 
-
-                            
-                        case 5:
+                            break;
+                        case 5: 
                             System.out.println("[5] -  Exibir Árvore;");
+                            util.linhas();
                             if ((arvoreAlunos.verificaVazio())) {
                                 System.out.println("Não há alunos cadastrados para exibir!");
  
-                                
                             }else{
                                 arvoreAlunos.exibirArvore();
 
